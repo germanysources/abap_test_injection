@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZTEST_INJECTION</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>D</LANGU>
+    <DESCRIPT>Test Injektionen ABAP Unit-Tests</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>Damit können Test-Injektionen bei ABAP Releases &lt; 750 erstellt werden.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>Die Test-Injektion muss ein eindeutigen Namen erhalten.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>Vom Test-Case wird diese aktiviert.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>Mit der Methode injection_is_active wird festgestellt, ob gerade eine</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> aktiv ist.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;RELATIONS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;EXAMPLE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>class test_injektion definition or testing.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>endclass</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>class test_injektion implementation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>  method in.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>    create object ztest_injection=&gt;self.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>    ztest_injection=&gt;self-&gt;injection_set_activ( name = &apos;INJ1&apos; ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>* Pruefcoding</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>    ztest_injection=&gt;self-&gt;injection_set_inactiv( name = &apos;INJ1&apos; ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>  endmethod.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>endclass.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>class objekt_zu_testen implementation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>  method av.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>    if (ztest_injection=&gt;injection_is_activ( name = &apos;INJ1&apos;) = abap_true)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/=</TDFORMAT>
+     <TDLINE>.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>* Jetzt Test-Injektion ausführen</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>    endif.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>  endmethod.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>endclass.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;HINTS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;FURTHER_SOURCES_OF_INF&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+   </LINES>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>ACTIV_STACK</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Aufrufer Test-Injektion</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>GET_TESTCLASS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Testklasse=&gt;Methode holen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>INJECTION</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Name Test Injektion</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>INJECTION_IS_ACTIVE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Injektion ist aktiv?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>INJECTION_SET_ACTIVE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Injektion aktivieren, vom Test-Case zu rufen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>INJECTION_SET_INACTIVE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Injektion deaktivieren, vom Test-Case zu rufen</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
