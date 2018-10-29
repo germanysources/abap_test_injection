@@ -51,7 +51,7 @@
     </TLINE>
     <TLINE>
      <TDFORMAT>AS</TDFORMAT>
-     <TDLINE>class test_injektion definition or testing.</TDLINE>
+     <TDLINE>class test_injektion definition for testing.</TDLINE>
     </TLINE>
     <TLINE>
      <TDFORMAT>AS</TDFORMAT>
@@ -105,7 +105,7 @@
     </TLINE>
     <TLINE>
      <TDFORMAT>AS</TDFORMAT>
-     <TDLINE>    if (ztest_injection=&gt;injection_is_activ( name = &apos;INJ1&apos;) = abap_true)</TDLINE>
+     <TDLINE>    if ztest_injection=&gt;injection_is_activ( name = &apos;INJ1&apos;) = abap_true.</TDLINE>
     </TLINE>
     <TLINE>
      <TDFORMAT>/=</TDFORMAT>
@@ -148,6 +148,12 @@
      <CMPNAME>ACTIV_STACK</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Aufrufer Test-Injektion</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZTEST_INJECTION</CLSNAME>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Instanz erzeugen</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZTEST_INJECTION</CLSNAME>
