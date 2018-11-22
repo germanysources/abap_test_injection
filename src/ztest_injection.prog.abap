@@ -1,6 +1,7 @@
 *&---------------------------------------------------------------------*
 *& Report  ZTEST_INJECTION
-*& unit test for injection. Not called from a testclass. It shouldn't fail.
+*& unit test for injection. Not called from a testclass.
+*& It shouldn't fail with an assertion error.
 *&---------------------------------------------------------------------*
 REPORT ZTEST_INJECTION.
 

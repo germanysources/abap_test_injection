@@ -85,14 +85,14 @@ CLASS ZTEST_INJECTION IMPLEMENTATION.
     formatted_stack = cl_abap_get_call_stack=>format_call_stack_with_struct( EXPORTING stack = stack ).
 * searches in stack, if method was called while executing a testclass.
 * Assumes, that testclasses are executed from the program RS_AUNIT_CLASSTEST_SESSION
-*kind=EVENT
-*progname=RS_AUNIT_CLASSTEST_SESSION
-*includename=RS_AUNIT_CLASSTEST_SESSION
-*event=start-of-selection
+*kind=METHOD
+*progname=CL_AUNIT_TEST_CLASS===========CP
+*event=CL_AUNIT_TEST_CLASS=>IF_AUNIT_TEST_CLASS_HANDLE~INVOKE_TEST_M
 
-    READ TABLE formatted_stack ASSIGNING <stack> INDEX lines( formatted_stack ).
-    IF NOT ( <stack>-kind = 'EVENT' AND <stack>-progname = 'RS_AUNIT_CLASSTEST_SESSION' AND <stack>-includename
-      = <stack>-progname AND <stack>-event = 'START-OF-SELECTION' ).
+    READ TABLE formatted_stack TRANSPORTING NO FIELDS
+      WITH KEY kind = 'METHOD' progname = 'CL_AUNIT_TEST_CLASS===========CP'
+      event = 'CL_AUNIT_TEST_CLASS=>IF_AUNIT_TEST_CLASS_HANDLE~INVOKE_TEST_M'.
+    IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE cx_program_not_found.
     ENDIF.
 
