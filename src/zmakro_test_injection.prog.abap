@@ -23,19 +23,20 @@ DEFINE in_set_active.
 * activate injection
 * &1 injection
 
-  ztest_injection=>self->injection_set_active( &1 ).
+  ztest_injection=>get_instance( )->injection_set_active( &1 ).
 
 END-OF-DEFINITION.
 
 DEFINE in_set_inactive.
 * deactivate injection
-* &1 die Injektion
+* &1 injection
 
-  ztest_injection=>self->injection_set_inactive( &1 ).
+  ztest_injection=>get_instance( )->injection_set_inactive( &1 ).
 
 END-OF-DEFINITION.
 
 DEFINE injection_active.
+* Deprecated!
 * check injection is active
 * &1 injection name
 

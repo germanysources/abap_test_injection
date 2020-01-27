@@ -41,12 +41,13 @@ public section.
     returning
       value(IS_ACTIVE) type SAP_BOOL .
   class-methods GET_INSTANCE
-    RETURNING VALUE(instance) TYPE REF TO ztest_injection.
+    returning
+      value(INSTANCE) type ref to ZTEST_INJECTION .
 protected section.
 
   data:
     activ_injections TYPE SORTED TABLE OF activ_stack
-    WITH UNIQUE KEY injection.
+    WITH UNIQUE KEY injection .
 
   methods GET_TESTCLASS
     exporting
@@ -83,12 +84,12 @@ CLASS ZTEST_INJECTION IMPLEMENTATION.
 
     stack = cl_abap_get_call_stack=>get_call_stack( ).
     formatted_stack = cl_abap_get_call_stack=>format_call_stack_with_struct( EXPORTING stack = stack ).
-* searches in stack, if method was called while executing a testclass.
-* Assumes, that testclasses are executed from the following stack:
-*kind=METHOD
-*progname=CL_AUNIT_TEST_CLASS===========CP
-*event: a method of CL_AUNIT_TEST_CLASS=>if_aunit_test_class_handle
 
+    " searches in stack, if method was called while executing a testclass.
+    " Assumes, that testclasses are executed from the following stack:
+    " kind=METHOD
+    " progname=CL_AUNIT_TEST_CLASS===========CP
+    " event: a method of CL_AUNIT_TEST_CLASS=>if_aunit_test_class_handle
     LOOP AT formatted_stack TRANSPORTING NO FIELDS
       WHERE kind = 'METHOD' AND progname = 'CL_AUNIT_TEST_CLASS===========CP'
       AND event CS 'CL_AUNIT_TEST_CLASS=>IF_AUNIT_TEST_CLASS_HANDLE'.
